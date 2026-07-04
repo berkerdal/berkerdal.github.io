@@ -902,7 +902,15 @@ body {
   }
   .profile-name span { letter-spacing: 2px; }
   .profile-tags { justify-content: center; padding-bottom: 20px; }
-  .tabs { padding: 12px 14px 0; overflow-x: auto; }
+  .tabs {
+    padding: 12px 14px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    /* Kaydırma çubukları gizli — yön bilgisini ‹ › ipuçları veriyor */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
   .tab { padding: 10px 14px 14px; font-size: 0.85rem; white-space: nowrap; }
   .panels { padding: 26px 22px 32px; }
   /* Sabit header'ın altına ince, %75 opak bar — kayan metinle karışmasın */
