@@ -830,6 +830,23 @@ body {
   .plate {
     grid-template-columns: 1fr;
     margin-top: 84px;
+    /* Sekmelerin sticky çalışabilmesi için (overflow:hidden sticky'yi kırar) */
+    overflow: visible;
+  }
+  /* Plaka köşe yuvarlaklığı overflow:visible ile kaybolmasın */
+  .profile { border-radius: 18px 18px 0 0; }
+
+  /* ML · NLP · AI etiketi mobilde gizli */
+  .topbar-fields { display: none; }
+
+  /* Sekmeler: kaydırınca header'ın altına yapışır */
+  .tabs {
+    position: sticky;
+    top: 45px;                     /* mobil header bar yüksekliği */
+    z-index: 9;
+    background: rgba(238, 240, 243, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   .profile {
     border-right: none;
