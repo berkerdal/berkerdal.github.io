@@ -383,6 +383,31 @@
   addEventListener('resize', () => moveIndicator(document.querySelector('.tab.active')));
 })();
 
+/* ---------- 2b. Sekme yatay kaydırma ipuçları (mobil) ---------- */
+(function initTabsHints() {
+  const tabs = document.querySelector('.tabs');
+  const left = document.getElementById('tabs-hint-left');
+  const right = document.getElementById('tabs-hint-right');
+  if (!tabs || !left || !right) return;
+
+  function update() {
+    const canScroll = tabs.scrollWidth > tabs.clientWidth + 4;
+    const atStart = tabs.scrollLeft <= 6;
+    const atEnd = tabs.scrollLeft + tabs.clientWidth >= tabs.scrollWidth - 6;
+    left.classList.toggle('visible', canScroll && !atStart);
+    right.classList.toggle('visible', canScroll && !atEnd);
+  }
+
+  tabs.addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+
+  left.addEventListener('click', () => tabs.scrollBy({ left: -150, behavior: 'smooth' }));
+  right.addEventListener('click', () => tabs.scrollBy({ left: 150, behavior: 'smooth' }));
+
+  update();
+  setTimeout(update, 400); // fontlar yüklenince genişlikler değişebilir
+})();
+
 /* ---------- 3. Kaydırma rayı (panel içi) ---------- */
 (function initScrollRail() {
   const panels = document.querySelector('.panels');

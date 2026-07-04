@@ -422,6 +422,48 @@ body {
 }
 
 /* --- Sekmeler --- */
+.tabs-wrap { position: relative; }
+
+/* Yatay kaydırma ipuçları — sadece mobilde görünür */
+.tab-scroll-hint {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  place-items: center;
+  z-index: 10;
+  border: none;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s;
+}
+.tab-scroll-hint.left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(238, 240, 243, 0.95), transparent);
+}
+.tab-scroll-hint.right {
+  right: 0;
+  background: linear-gradient(-90deg, rgba(238, 240, 243, 0.95), transparent);
+}
+.tab-scroll-hint.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.tab-scroll-hint.visible svg { animation: hint-pulse 1.8s ease-in-out infinite; }
+.tab-scroll-hint.right.visible svg { animation-name: hint-pulse-r; }
+@keyframes hint-pulse {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50%      { opacity: 0.85; transform: translateX(-2px); }
+}
+@keyframes hint-pulse-r {
+  0%, 100% { opacity: 0.3; transform: translateX(0); }
+  50%      { opacity: 0.85; transform: translateX(2px); }
+}
+
 .tabs {
   position: relative;
   display: flex;
@@ -839,8 +881,8 @@ body {
   /* ML · NLP · AI etiketi mobilde gizli */
   .topbar-fields { display: none; }
 
-  /* Sekmeler: kaydırınca header'ın altına yapışır */
-  .tabs {
+  /* Sekmeler: kaydırınca header'ın altına yapışır (sarmalayıcı sticky) */
+  .tabs-wrap {
     position: sticky;
     top: 45px;                     /* mobil header bar yüksekliği */
     z-index: 9;
@@ -848,6 +890,9 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
+
+  /* Yatay kaydırma ipuçları aktif */
+  .tab-scroll-hint { display: grid; }
   .profile {
     border-right: none;
     border-bottom: 1px solid var(--line);

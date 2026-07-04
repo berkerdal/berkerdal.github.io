@@ -155,15 +155,24 @@ Makine öğrenmesi, veri bilimi ve bu alanların uygulamalı problem çözme sü
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </button>
       </div>
-      <nav class="tabs" role="tablist">
-        <button class="tab" data-panel="panel-edu" role="tab" data-i18n="tab_edu">Eğitim</button>
-        <button class="tab" data-panel="panel-exp" role="tab" data-i18n="tab_exp">Deneyim</button>
-        <button class="tab active" data-panel="panel-pubs" role="tab" data-i18n="tab_pubs">Yayınlar</button>
-        <button class="tab" data-panel="panel-projects" role="tab" data-i18n="tab_projects">Projeler</button>
-        <button class="tab" data-panel="panel-files" role="tab" data-i18n="tab_files">Dosyalar</button>
-        <button class="tab" data-panel="panel-contact" role="tab" data-i18n="tab_contact">İletişim</button>
-        <span class="tab-indicator" id="tab-indicator"></span>
-      </nav>
+      <div class="tabs-wrap">
+        <!-- Mobilde yatay kaydırma ipuçları -->
+        <button class="tab-scroll-hint left" id="tabs-hint-left" aria-label="Sekmeleri sola kaydır">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <nav class="tabs" role="tablist">
+          <button class="tab" data-panel="panel-edu" role="tab" data-i18n="tab_edu">Eğitim</button>
+          <button class="tab" data-panel="panel-exp" role="tab" data-i18n="tab_exp">Deneyim</button>
+          <button class="tab active" data-panel="panel-pubs" role="tab" data-i18n="tab_pubs">Yayınlar</button>
+          <button class="tab" data-panel="panel-projects" role="tab" data-i18n="tab_projects">Projeler</button>
+          <button class="tab" data-panel="panel-files" role="tab" data-i18n="tab_files">Dosyalar</button>
+          <button class="tab" data-panel="panel-contact" role="tab" data-i18n="tab_contact">İletişim</button>
+          <span class="tab-indicator" id="tab-indicator"></span>
+        </nav>
+        <button class="tab-scroll-hint right" id="tabs-hint-right" aria-label="Sekmeleri sağa kaydır">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
 
       <div class="panels">
 
