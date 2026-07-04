@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berker DAL</title>
+  <meta name="description" content="Berker DAL — Pamukkale Üniversitesi, Yönetim Bilişim Sistemleri. Makine Öğrenmesi, Doğal Dil İşleme ve Yapay Zeka üzerine akademik çalışmalar.">
+  <meta name="theme-color" content="#e6e8ec">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="canonical" href="https://berkerbey.github.io/">
+  <!-- Sosyal medya paylaşım önizlemesi -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://berkerbey.github.io/">
+  <meta property="og:title" content="Berker DAL — Makine Öğrenmesi & NLP">
+  <meta property="og:description" content="Pamukkale Üniversitesi, Yönetim Bilişim Sistemleri. Makine Öğrenmesi, Doğal Dil İşleme ve Yapay Zeka üzerine akademik çalışmalar.">
+  <meta property="og:image" content="https://berkerbey.github.io/images/profile.jpg">
+  <meta property="og:locale" content="tr_TR">
+  <meta name="twitter:card" content="summary">
+  <!-- Google için yapılandırılmış veri: bu site kime ait -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Berker Dal",
+    "givenName": "Berker",
+    "familyName": "Dal",
+    "jobTitle": "Araştırma Görevlisi",
+    "url": "https://berkerbey.github.io/",
+    "image": "https://berkerbey.github.io/images/profile.jpg",
+    "email": "mailto:bdal@pau.edu.tr",
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "Pamukkale Üniversitesi",
+      "url": "https://www.pau.edu.tr/",
+      "department": {
+        "@type": "Organization",
+        "name": "Yönetim Bilişim Sistemleri Bölümü, İktisadi ve İdari Bilimler Fakültesi",
+        "url": "https://www.pau.edu.tr/ybs"
+      }
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Akdeniz Üniversitesi" },
+      { "@type": "CollegeOrUniversity", "name": "Pamukkale Üniversitesi" }
+    ],
+    "knowsAbout": [
+      "Machine Learning",
+      "Natural Language Processing",
+      "Artificial Intelligence",
+      "Data Science",
+      "Generative AI"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/berkerdal/",
+      "https://orcid.org/0000-0002-9019-1896",
+      "https://www.researchgate.net/profile/Berker-Dal",
+      "https://akademik.yok.gov.tr/AkademikArama/AkademisyenGorevOgrenimBilgileri?islem=direct&authorId=8E55050AE9978D06"
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Yatay Yapay Sinir Ağı — arka plan -->
+  <canvas id="net-canvas"></canvas>
+
+  <!-- Üst bant -->
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 34 24" fill="none" aria-hidden="true">
+        <!-- kenarlar -->
+        <g stroke="currentColor" stroke-width="0.8" opacity="0.45">
+          <path d="M4 7L17 4M4 7L17 12M4 7L17 20M4 17L17 4M4 17L17 12M4 17L17 20"/>
+          <path d="M17 4L30 12M17 12L30 12M17 20L30 12"/>
+        </g>
+        <!-- düğümler -->
+        <g fill="currentColor">
+          <circle cx="4" cy="7" r="2"/>
+          <circle cx="4" cy="17" r="2"/>
+          <circle cx="17" cy="4" r="2"/>
+          <circle cx="17" cy="12" r="2"/>
+          <circle cx="17" cy="20" r="2"/>
+          <circle class="pulse-node" cx="30" cy="12" r="2.5"/>
+        </g>
+      </svg>
+      <span class="brand-name">BERKER<b>DAL</b></span>
+    </div>
+    <div class="topbar-fields">
+      <span>ML</span><i></i><span>NLP</span><i></i><span>AI</span>
+    </div>
+  </header>
+
+  <!-- ============ ANA PLAKA ============ -->
+  <main class="plate">
+    <div class="plate-screw tl"></div>
+    <div class="plate-screw tr"></div>
+    <div class="plate-screw bl"></div>
+    <div class="plate-screw br"></div>
+
+    <!-- Sol: Profil -->
+    <aside class="profile">
+      <div class="photo-frame">
+        <!-- Fotoğrafınızı images/profile.jpg olarak eklemeniz yeterli -->
+        <img src="images/profile.jpg" alt="Berker DAL" id="profile-photo"
+             onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='grid';">
+        <div class="photo-fallback" id="photo-fallback">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8.5" r="3.5"/><path d="M4.5 20c1.4-3.6 4.2-5.5 7.5-5.5s6.1 1.9 7.5 5.5"/>
+          </svg>
+          <span>Fotoğraf<br>images/profile.jpg</span>
+        </div>
+      </div>
+
+      <h1 class="profile-name">Berker <span>DAL</span></h1>
+      <p class="profile-title">Araştırma Görevlisi</p>
+      <div class="profile-org">
+        Pamukkale Üniversitesi<br>
+        İktisadi ve İdari Bilimler Fakültesi<br>
+        Yönetim Bilişim Sistemleri Bölümü
+      </div>
+
+      <p class="profile-bio">
+Makine öğrenmesi, veri bilimi ve bu alanların uygulamalı problem çözme süreçlerinde kullanımı üzerine yoğunlaşır. Yapay zekâ tabanlı sistemler, üretken yapay zeka, doğal dil işleme ve karar destek sistemleriyle ilgilenir.
+      </p>
+
+      <div class="profile-tags">
+		<span>Data Science</span>
+        <span>Machine Learning</span>
+        <span>NLP</span>
+        <span>Artificial Intelligence</span>
+		<span>Generative AI</span>
+      </div>
+
+    </aside>
+
+    <!-- Sağ: Sekmeli içerik -->
+    <section class="content">
+      <!-- Kaydırma rayı: içerik taşınca sağ kenarda görünür -->
+      <div class="scroll-rail" id="scroll-rail">
+        <button class="rail-arrow up" id="rail-up" aria-label="Yukarı kaydır">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+        </button>
+        <div class="rail-track"><div class="rail-thumb" id="rail-thumb"></div></div>
+        <button class="rail-arrow down" id="rail-down" aria-label="Aşağı kaydır">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+      <nav class="tabs" role="tablist">
+        <button class="tab" data-panel="panel-edu" role="tab">Eğitim</button>
+        <button class="tab" data-panel="panel-exp" role="tab">Deneyim</button>
+        <button class="tab active" data-panel="panel-pubs" role="tab">Yayınlar</button>
+        <button class="tab" data-panel="panel-projects" role="tab">Projeler</button>
+        <button class="tab" data-panel="panel-files" role="tab">Dosyalar</button>
+        <button class="tab" data-panel="panel-contact" role="tab">İletişim</button>
+        <span class="tab-indicator" id="tab-indicator"></span>
+      </nav>
+
+      <div class="panels">
+
+        <!-- EĞİTİM -->
+        <div class="panel" id="panel-edu">
+          <h2 class="panel-title">Öğrenim Bilgisi</h2>
+          <ul class="edu-list">
+            <li class="edu">
+              <div class="edu-logo"><img src="images/logo-pau.png" alt="Pamukkale Üniversitesi"></div>
+              <div class="edu-body">
+                <span class="edu-years">2023 — 2026</span>
+                <h3>Pamukkale Üniversitesi</h3>
+                <p>Sosyal Bilimler Enstitüsü · Yönetim Bilişim Sistemleri (YL, Tezli)</p>
+              </div>
+            </li>
+            <li class="edu">
+              <div class="edu-logo"><img src="images/logo-akdeniz.png" alt="Akdeniz Üniversitesi"></div>
+              <div class="edu-body">
+                <span class="edu-years">2022 — 2023</span>
+                <h3>Akdeniz Üniversitesi</h3>
+                <p>Sosyal Bilimler Enstitüsü · Yönetim Bilişim Sistemleri (YL, Tezli)</p>
+              </div>
+            </li>
+            <li class="edu">
+              <div class="edu-logo"><img src="images/logo-akdeniz.png" alt="Akdeniz Üniversitesi"></div>
+              <div class="edu-body">
+                <span class="edu-years">2020 — 2024</span>
+                <h3>Akdeniz Üniversitesi</h3>
+                <p>Uygulamalı Bilimler Fakültesi · Yönetim Bilişim Sistemleri (Lisans)</p>
+              </div>
+            </li>
+            <li class="edu">
+              <div class="edu-logo"><img src="images/logo-akdeniz.png" alt="Akdeniz Üniversitesi"></div>
+              <div class="edu-body">
+                <span class="edu-years">2016 — 2020</span>
+                <h3>Akdeniz Üniversitesi</h3>
+                <p>Edebiyat Fakültesi · İngiliz Dili ve Edebiyatı (Lisans)</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DENEYİM -->
+        <div class="panel" id="panel-exp">
+          <h2 class="panel-title">Deneyim</h2>
+
+          <h3 class="pub-group-title">Akademik Görevler</h3>
+          <ul class="edu-list">
+            <li class="edu">
+              <div class="edu-logo"><img src="images/logo-pau.png" alt="Pamukkale Üniversitesi"></div>
+              <div class="edu-body">
+                <span class="edu-years">Nisan 2023 — Devam Ediyor</span>
+                <h3>Araştırma Görevlisi</h3>
+                <p>Pamukkale Üniversitesi · İktisadi ve İdari Bilimler Fakültesi</br>Yönetim Bilişim Sistemleri Bölümü</p>
+                <p class="edu-loc">Pamukkale, Denizli, Türkiye</p>
+              </div>
+              <a href="https://www.pau.edu.tr/ybs" target="_blank" rel="noopener" class="pub-link" aria-label="Bölüm sayfası">↗</a>
+            </li>
+          </ul>
+
+          <h3 class="pub-group-title">İdari Görevler</h3>
+          <ul class="edu-list">
+            <li class="edu">
+              <div class="edu-logo"><img src="images/tto.png" alt="Pamukkale Teknokent Teknoloji Transfer Ofisi"></div>
+              <div class="edu-body">
+                <span class="edu-years">Eylül 2025 — Devam Ediyor</span>
+                <h3>Yönetim Kurulu Üyesi</h3>
+                <p>Pamukkale Teknokent Teknoloji Transfer Ofisi A.Ş.</p>
+                <p class="edu-loc">Pamukkale, Denizli, Türkiye</p>
+              </div>
+              <a href="https://www.pauteknokent.com.tr/pamukkale-teknoloji-transfer-ofisi" target="_blank" rel="noopener" class="pub-link" aria-label="TTO sayfası">↗</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- YAYINLAR -->
+        <div class="panel active" id="panel-pubs">
+          <h2 class="panel-title">Akademik Yayınlar</h2>
+
+          <h3 class="pub-group-title">Makaleler</h3>
+          <ul class="pub-list">
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">SCI-Expanded · Özgün Makale · Uluslararası Hakemli</span>
+                <h3>Interpretable building energy performance prediction using XGBoost Quantile Regression</h3>
+                <p class="pub-authors">Sinem Güler Kangallı Uyar · Bilge Kağan Özbay · <strong>Berker Dal</strong></p>
+                <p class="pub-venue">Energy and Buildings, 2025</p>
+              </div>
+              <a href="https://dx.doi.org/10.1016/j.enbuild.2025.115815" target="_blank" rel="noopener" class="pub-link" aria-label="DOI">↗</a>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2024</span>
+              <div>
+                <span class="pub-type">SCI-Expanded · Özgün Makale · Uluslararası Hakemli</span>
+                <h3>Modeling building carbon emissions by using MARS algorithm: A case of Istanbul</h3>
+                <p class="pub-authors">Sinem Güler Kangallı Uyar · <strong>Berker Dal</strong> · Bilge Kağan Özbay</p>
+                <p class="pub-venue">Building and Environment, 2024</p>
+              </div>
+              <a href="https://dx.doi.org/10.1016/j.buildenv.2024.111768" target="_blank" rel="noopener" class="pub-link" aria-label="DOI">↗</a>
+            </li>
+          </ul>
+
+          <h3 class="pub-group-title">Bildiriler</h3>
+          <ul class="pub-list">
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Tam Metin Bildiri</span>
+                <h3>Leveraging LLM-Based Multi-Agent Systems for Automated Literature Analysis: An Application on Research Trend and Gap Discovery</h3>
+                <p class="pub-authors"><strong>Berker Dal</strong></p>
+                <p class="pub-venue">17th UMTEB International Scientific Research Congress, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Tam Metin Bildiri</span>
+                <h3>Evaluating Factors Affecting Housing Prices Using Machine Learning Models: The Case of Denizli</h3>
+                <p class="pub-authors">Betül Yel · Aylin Sabancı Bayramoğlu · <strong>Berker Dal</strong></p>
+                <p class="pub-venue">9th International Halich Congress on Multidisciplinary Scientific Research, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Özet Bildiri</span>
+                <h3>Effectiveness of Large Language Models in Detecting Computer-Generated Fake Product Reviews</h3>
+                <p class="pub-authors">Aylin Sabancı Bayramoğlu · <strong>Berker Dal</strong></p>
+                <p class="pub-venue">11th International Aegean Congress on Innovation Technologies &amp; Engineering, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Özet Bildiri</span>
+                <h3>Comparative Sentiment Analysis of Vegan Restaurant Customer Reviews with VADER and RoBERTa Algorithms</h3>
+                <p class="pub-authors"><strong>Berker Dal</strong> · Aylin Sabancı Bayramoğlu</p>
+                <p class="pub-venue">11th International Aegean Congress on Innovation Technologies &amp; Engineering, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Özet Bildiri</span>
+                <h3>Development of a Building Energy Performance Model Using Machine Learning Algorithms</h3>
+                <p class="pub-authors">Sinem Güler Kangallı Uyar · <strong>Berker Dal</strong> · Bilge Kağan Özbay</p>
+                <p class="pub-venue">14th International Atlas Congress on Advanced Scientific Studies and Interdisciplinary Research, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2025</span>
+              <div>
+                <span class="pub-type">Uluslararası · Özet Bildiri</span>
+                <h3>Cluster Analysis and Mapping of Apartment Buildings in Istanbul Based on Physical Characteristics</h3>
+                <p class="pub-authors">Bilge Kağan Özbay · <strong>Berker Dal</strong> · Sinem Güler Kangallı Uyar</p>
+                <p class="pub-venue">22nd International Symposium on Econometrics, Operations Research and Statistics, 2025</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2023</span>
+              <div>
+                <span class="pub-type">Uluslararası · Özet Bildiri</span>
+                <h3>İstanbul'da Bina Sera Gazı Emisyonlarını Etkileyen Faktörlerin MARS Yöntemi ile İncelenmesi</h3>
+                <p class="pub-authors">Sinem Güler Kangallı Uyar · Bilge Kağan Özbay · <strong>Berker Dal</strong></p>
+                <p class="pub-venue">10th International Conference on Applied Economics and Finance, 2023</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- PROJELER -->
+        <div class="panel" id="panel-projects">
+          <h2 class="panel-title">Projeler</h2>
+
+          <h3 class="pub-group-title">Devam Eden</h3>
+          <ul class="pub-list">
+            <li class="pub">
+              <div class="proj-logo"><img src="images/logo-tubitak.png" alt="TÜBİTAK"></div>
+              <div>
+                <span class="pub-type">TÜBİTAK 2209-A · 2025 / 1. Dönem</span>
+                <h3>BERTopic ve Büyük Dil Modelleri ile Türkçe Tiyatro Oyunu Yorumlarının Çok Boyutlu Analizi</h3>
+                <p class="pub-venue">Görev: Akademik Danışman</p>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="proj-logo"><img src="images/logo-tubitak.png" alt="TÜBİTAK"></div>
+              <div>
+                <span class="pub-type">TÜBİTAK 2209-A · 2025 / 1. Dönem</span>
+                <h3>Büyük Dil Modelleri ve İnsan Yazımı Türkçe Akademik Özetlerin Bilimsel Yazım Standartları Açısından Karşılaştırmalı Analizi ve Türkçeye Uyumlu Bir Değerlendirme Çerçevesi Geliştirilmesi</h3>
+                <p class="pub-venue">Görev: Akademik Danışman</p>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="proj-logo"><img src="images/logo-tubitak.png" alt="TÜBİTAK"></div>
+              <div>
+                <span class="pub-type">TÜBİTAK 2209-A · 2025 / 1. Dönem</span>
+                <h3>E-Ticaret Ürün Fotoğrafçılığında Görsel Kalitenin Referanssız Metrikler ile Nesnel Ölçümü</h3>
+                <p class="pub-venue">Görev: Akademik Danışman</p>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="proj-logo"><img src="images/logo-tubitak.png" alt="TÜBİTAK"></div>
+              <div>
+                <span class="pub-type">TÜBİTAK 2209-A · 2025 / 1. Dönem</span>
+                <h3>Kentsel Toplu Taşımada Erişilebilirlik ve Erişim Temelli Kentsel Konforun Açık Veri Tabanlı Ağ Analiziyle Modellenmesi: Denizli Örneği</h3>
+                <p class="pub-venue">Görev: Akademik Danışman</p>
+              </div>
+            </li>
+            <li class="pub">
+              <div class="proj-logo"><img src="images/logo-tubitak.png" alt="TÜBİTAK"></div>
+              <div>
+                <span class="pub-type">TÜBİTAK 2209-A · 2025 / 1. Dönem</span>
+                <h3>KOBİ'lerin Dijital Dönüşümünde KAHVEM: Kahve Dükkanı İşletmeleri İçin Ölçeklenebilir Mobil Yönetim Bilişim Sistemi Modeli</h3>
+                <p class="pub-venue">Görev: Akademik Danışman</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DOSYALAR -->
+        <div class="panel" id="panel-files">
+          <h2 class="panel-title">Paylaşılan Dosyalar</h2>
+          <ul class="file-list">
+            <li class="file">
+              <div>
+                <h3>Özgeçmiş (CV)</h3>
+                <p>Güncel akademik özgeçmiş</p>
+              </div>
+              <a href="https://bulut.pau.edu.tr/s/5aXQ7FC3SyQEmiJ" target="_blank" rel="noopener" class="pub-link" aria-label="Özgeçmiş">↗</a>
+            </li>
+            <li class="file">
+              <div>
+                <h3>Ders Notları</h3>
+                <p>Öğrenciler için paylaşılan materyaller</p>
+                <ul class="course-list">
+                  <li class="course">
+                    <span class="course-code">YBS 441</span>
+                    <span class="course-name">Veri Madenciliği Teknikleri</span>
+                    <a href="https://bulut.pau.edu.tr/s/3q4zdptyjbE48gD" target="_blank" rel="noopener" class="pub-link small" aria-label="Ders notları">↗</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- İLETİŞİM -->
+        <div class="panel" id="panel-contact">
+          <h2 class="panel-title">İletişim</h2>
+          <p class="contact-lead">Akademik iş birlikleri, ortak yayınlar ve projeler için bana ulaşabilirsiniz.</p>
+          <a href="mailto:bdal@pau.edu.tr" class="contact-mail-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            bdal@pau.edu.tr
+          </a>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/berkerdal/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://orcid.org/0000-0002-9019-1896" target="_blank" rel="noopener" class="social-btn" title="ORCID">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zM7.37 4.97c.63 0 1.14.51 1.14 1.14 0 .63-.51 1.14-1.14 1.14-.63 0-1.14-.51-1.14-1.14 0-.63.51-1.14 1.14-1.14zm-.9 3.9h1.8v10.5h-1.8V8.87zm4.4 0h4.06c3.87 0 5.57 2.77 5.57 5.25 0 2.69-2.1 5.25-5.55 5.25h-4.08V8.87zm1.8 1.63v7.24h2.19c3.41 0 4.19-2.59 4.19-3.62 0-1.96-1.25-3.62-4.27-3.62h-2.11z"/></svg>
+              <span>ORCID</span>
+            </a>
+            <a href="https://www.researchgate.net/profile/Berker-Dal" target="_blank" rel="noopener" class="social-btn" title="ResearchGate">
+              <img src="images/logo-rg.png" alt="ResearchGate">
+              <span>ResearchGate</span>
+            </a>
+            <a href="https://akademik.yok.gov.tr/AkademikArama/AkademisyenGorevOgrenimBilgileri?islem=direct&amp;authorId=8E55050AE9978D06" target="_blank" rel="noopener" class="social-btn" title="YÖK Akademik">
+              <img src="images/logo-yok.png" alt="YÖK Akademik">
+              <span>YÖK Akademik</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">© 2026 Berker DAL — Pamukkale Üniversitesi · YBS</footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
