@@ -811,7 +811,16 @@ body {
   .tabs { padding: 12px 14px 0; overflow-x: auto; }
   .tab { padding: 10px 14px 14px; font-size: 0.85rem; white-space: nowrap; }
   .panels { padding: 26px 22px 32px; }
-  .topbar { padding: 16px 22px; }
+  /* Sabit header'ın altına ince, %75 opak bar — kayan metinle karışmasın */
+  .topbar {
+    padding: 10px 22px;
+    background: rgba(233, 235, 239, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(20, 21, 26, 0.08);
+    box-shadow: 0 1px 8px rgba(20, 21, 26, 0.06);
+  }
+  .plate { margin-top: 72px; }
 }
 
 @media (max-width: 480px) {
