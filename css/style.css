@@ -501,9 +501,10 @@ body {
   width: 48px;
   height: 48px;
   object-fit: contain;
-  /* Siyah-beyaz — tasarım diline uyum */
+  /* Siyah-beyaz — tasarım diline uyum; hover'da orijinal renk */
   filter: grayscale(1) contrast(1.1);
   opacity: 0.85;
+  transition: filter .3s, opacity .3s;
 }
 .edu-years {
   font-family: var(--font-mono);
@@ -525,7 +526,7 @@ body {
   letter-spacing: 0.5px;
   margin-top: 2px;
 }
-.edu:hover .edu-logo img { filter: grayscale(1) contrast(1.25); opacity: 1; }
+.edu:hover .edu-logo img { filter: none; opacity: 1; }
 
 /* --- Yayınlar --- */
 .pub-group-title {
@@ -559,7 +560,7 @@ body {
   opacity: 0.85;
   transition: filter .25s, opacity .25s;
 }
-.pub:hover .proj-logo img { filter: grayscale(1) contrast(1.25); opacity: 1; }
+.pub:hover .proj-logo img { filter: none; opacity: 1; }
 .pub-group-title::before {
   content: '';
   width: 8px; height: 8px;
