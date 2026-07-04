@@ -75,10 +75,11 @@
       }
       layers.push(layer);
 
-      // Katman adları
-      if (i === 0) layerNames.push({ x, text: 'girdi' });
-      else if (i === layerCount - 1) layerNames.push({ x, text: 'çıktı' });
-      else layerNames.push({ x, text: 'gizli ' + i });
+      // Katman adları (site diline göre)
+      const en = (document.documentElement.lang || 'tr').toLowerCase().startsWith('en');
+      if (i === 0) layerNames.push({ x, text: en ? 'input' : 'girdi' });
+      else if (i === layerCount - 1) layerNames.push({ x, text: en ? 'output' : 'çıktı' });
+      else layerNames.push({ x, text: (en ? 'hidden ' : 'gizli ') + i });
     }
 
     // Bağlantılar + ağırlıklar
@@ -344,6 +345,9 @@
 
   build();
   requestAnimationFrame(frame);
+
+  // Dil değişince katman adlarının güncellenebilmesi için
+  window.__netRebuild = build;
 })();
 
 /* ---------- 2. Sekmeler ---------- */

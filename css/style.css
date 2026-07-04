@@ -106,6 +106,37 @@ body {
   text-shadow: none;
 }
 
+/* Sağ blok: alan etiketleri + dil düğmesi */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Dil değiştirici — aktif olmayan dilin bayrağı */
+.lang-toggle {
+  pointer-events: auto;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0.85;
+  transition: opacity .25s, transform .25s;
+}
+.lang-toggle img {
+  display: block;
+  width: 27px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(20, 21, 26, 0.25);
+  box-shadow: 0 1px 3px rgba(20, 21, 26, 0.3);
+}
+.lang-toggle:hover { opacity: 1; transform: translateY(-2px); }
+
 /* Sağ: düğümlerle bağlı alan etiketleri */
 .topbar-fields {
   display: flex;
