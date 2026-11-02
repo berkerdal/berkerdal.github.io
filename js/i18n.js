@@ -32,6 +32,11 @@
     edu_title:   { tr: 'Öğrenim Bilgisi', en: 'Education' },
     uni_pau:     { tr: 'Pamukkale Üniversitesi', en: 'Pamukkale University' },
     uni_akdeniz: { tr: 'Akdeniz Üniversitesi', en: 'Akdeniz University' },
+    edu_years_phd: { tr: 'Eylül 2026 — Devam Ediyor', en: 'September 2026 — Present' },
+    edu_phd: {
+      tr: 'Sosyal Bilimler Enstitüsü · Yönetim Bilişim Sistemleri (Doktora)',
+      en: 'Institute of Social Sciences · Management Information Systems (PhD)'
+    },
     edu_msc: {
       tr: 'Sosyal Bilimler Enstitüsü · Yönetim Bilişim Sistemleri (YL, Tezli)',
       en: 'Institute of Social Sciences · Management Information Systems (MSc, Thesis)'
