@@ -60,6 +60,11 @@
       tr: 'Pamukkale Teknokent Teknoloji Transfer Ofisi A.Ş.',
       en: 'Pamukkale Teknokent Technology Transfer Office Inc.'
     },
+    exp_years_3: { tr: 'Eylül 2026 — Devam Ediyor', en: 'September 2026 — Present' },
+    exp_org_3: {
+      tr: 'Pamukkale Teknokent Yönetici A.Ş.',
+      en: 'Pamukkale Teknokent Management Inc.'
+    },
     loc: { tr: 'Pamukkale, Denizli, Türkiye', en: 'Pamukkale, Denizli, Turkey' },
 
     /* --- Yayınlar --- */
