@@ -120,6 +120,7 @@
     file_cv_desc:    { tr: 'Güncel akademik özgeçmiş', en: 'Up-to-date academic CV' },
     file_notes:      { tr: 'Ders Notları', en: 'Lecture Notes' },
     file_notes_desc: { tr: 'Öğrenciler için paylaşılan materyaller', en: 'Materials shared with students' },
+    course_319:      { tr: 'Yapay Zekâ ve Öğrenen Algoritmalara Giriş', en: 'Introduction to Artificial Intelligence and Learning Algorithms' },
     course_441:      { tr: 'Veri Madenciliği Teknikleri', en: 'Data Mining Techniques' },
 
     /* --- İletişim --- */
