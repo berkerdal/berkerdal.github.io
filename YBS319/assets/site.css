@@ -39,7 +39,7 @@ h1 .l2{display:block;font-size:.7em;margin-top:6px}
 .sec::after{content:"";flex:1;border-top:1.5px dashed var(--line)}
 
 /* hub cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
 .card{display:grid;grid-template-rows:auto auto 1fr auto;gap:8px;text-decoration:none;color:var(--ink);
   background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:22px 22px 18px;position:relative;
   box-shadow:4px 4px 0 var(--accent,var(--blue));transition:transform .15s ease,box-shadow .15s ease,border-color .15s}
